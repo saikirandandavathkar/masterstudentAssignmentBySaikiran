@@ -1,0 +1,64 @@
+.container1 {
+  background-color: #000000;
+  min-height: 100vh;
+}
+
+.responsive-container1 {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0px;
+}
+
+.logoContainer {
+  margin-right: 50px;
+  margin-bottom: 30px;
+}
+
+.buttonStyle {
+  border-radius: 75px;
+  border: none;
+  background-color: none;
+  outline: none;
+  cursor: pointer;
+}
+.teacherImg {
+  width: 150px;
+  height: 150px;
+  border-radius: 75px;
+}
+
+.logo-heading {
+  font-family: 'Roboto';
+  font-size: 24px;
+  color: white;
+  text-align: center;
+  padding: 5px;
+}
+
+.studentImg {
+  width: 145px;
+  height: 145px;
+  border-radius: 75px;
+  margin-bottom: 10px;
+}
+
+.main-heading {
+  font-family: 'Roboto';
+  font-size: 45px;
+  color: white;
+}
+
+.container2 {
+  display: flex;
+  flex-direction: column;
+  margin-top: 0px;
+}
+
+@media screen and (min-width: 768px) {
+  .container2 {
+    flex-direction: row;
+  }
+}
