@@ -1,0 +1,14 @@
+.orderList {
+  list-style-type: decimal;
+  font-weight: 700;
+}
+
+.orderContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-family: 'Roboto';
+  font-size: 12px;
+  color: black;
+  padding-right: 150px;
+}

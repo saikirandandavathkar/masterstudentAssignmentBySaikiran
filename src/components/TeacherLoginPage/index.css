@@ -113,12 +113,28 @@
   margin-left: 5px;
 }
 
-.backButton {
-  margin-top: 10px;
-  background-color: black;
-  color: white;
-  border-radius: 5px;
-  padding: 5px;
+.backButton34 {
+  color: #3492eb;
+  background-color: #ffffff;
+  font-family: 'Roboto';
+  font-size: 18px;
+  border-width: 0px;
+  border-radius: 4px;
+  margin-top: 20px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-right: 20px;
+  padding-left: 20px;
+  align-self: flex-end;
   outline: none;
   cursor: pointer;
+}
+
+.error {
+  font-family: 'Roboto';
+  font-size: 12px;
+  padding: 0px;
+  color: red;
+  margin: 0px;
+  margin-bottom: 5px;
 }

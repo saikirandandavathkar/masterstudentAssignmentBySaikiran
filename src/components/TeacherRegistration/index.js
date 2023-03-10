@@ -83,7 +83,7 @@ class TeacherRegistration extends Component {
 
   toSignUp = event => {
     event.preventDefault()
-    const {name, email, password, confirmPassword, userDetailsList} = this.state
+    const {name, email, password, confirmPassword} = this.state
     if (name === '' && email === '' && password === '') {
       this.setState({isItEmail: false, isItname: false, isItPassword: false})
     } else if (name !== '' && email !== '' && password !== '') {
@@ -285,7 +285,7 @@ class TeacherRegistration extends Component {
     const passwordError = isItMatched ? '' : '*Password Not Matched'
     const invalidEmail = isEmailValid
       ? ''
-      : '*password must ends with @gamil.com'
+      : '*password must end with @gmail.com'
     const nameError = isItname ? '' : '*Enter Valild Name'
     const emailError = isItEmail ? '' : '*Enter Valild Email'
     const invalidPasssword = isItPassword ? '' : '*Enter Valid Password'

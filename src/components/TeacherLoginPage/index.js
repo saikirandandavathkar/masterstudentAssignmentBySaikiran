@@ -8,9 +8,20 @@ class TeacherLoginPage extends Component {
   state = {
     email: '',
     password: '',
-    emailError: '',
-    passwordError: '',
+    emailError: false,
+    passwordError: false,
     isItShow: false,
+  }
+
+  getListFromLocalStorage = () => {
+    const stringifiedList = localStorage.getItem('teacherSignUpList')
+
+    const parsedList = JSON.parse(stringifiedList)
+
+    if (parsedList === null) {
+      return []
+    }
+    return parsedList
   }
 
   onChangeUsername = event => {
@@ -21,9 +32,53 @@ class TeacherLoginPage extends Component {
     this.setState({password: event.target.value})
   }
 
+  goToTaskExecutorPage = () => {
+    const {history} = this.props
+    history.replace('/taskExecutor')
+  }
+
   toLogin = event => {
     event.preventDefault()
     const {email, password} = this.state
+    const parsedList = this.getListFromLocalStorage()
+
+    const emailMatched = parsedList.some(eachList => eachList.email === email)
+    const passwordMatched = parsedList.some(
+      eachList => eachList.password === password,
+    )
+
+    console.log(emailMatched)
+    console.log(passwordMatched)
+
+    if (emailMatched === false && passwordMatched === false) {
+      this.setState({
+        emailError: true,
+        passwordError: true,
+        email: '',
+        password: '',
+      })
+    } else if (emailMatched === true && passwordMatched === false) {
+      this.setState({
+        emailError: false,
+        passwordError: true,
+        password: '',
+      })
+    } else if (emailMatched === false && passwordMatched === true) {
+      this.setState({
+        emailError: true,
+        passwordError: true,
+      })
+    } else {
+      this.setState(
+        {
+          emailError: false,
+          passwordError: false,
+          email: '',
+          password: '',
+        },
+        this.goToTaskExecutorPage,
+      )
+    }
   }
 
   onClickShow = event => {
@@ -34,10 +89,11 @@ class TeacherLoginPage extends Component {
     const {emailError, passwordError, email, password, isItShow} = this.state
     const showedPasswordText = isItShow ? 'Password showed' : 'Show password'
     const checkElType = isItShow ? 'text' : 'password'
+    const emailErrorText = emailError ? '*Invalid email' : ''
+    const passwordErrorText = passwordError ? '*Invalid password' : ''
     return (
       <div className="container">
         <div className="responsive-container">
-          <h1 className="teacher-heading-page"> Master Login Page </h1>
           <form className="loginCard" onSubmit={this.toLogin}>
             <h1 className="heading-teacher"> Login </h1>
             <div className="login-input-container">
@@ -52,7 +108,7 @@ class TeacherLoginPage extends Component {
                 onChange={this.onChangeUsername}
                 value={email}
               />
-              <p>{emailError}</p>
+              <p className="error">{emailErrorText}</p>
             </div>
             <div>
               <label className="user-label" htmlFor="password">
@@ -68,7 +124,7 @@ class TeacherLoginPage extends Component {
                 value={password}
               />
               <div className="showPasswordContainer">
-                <p className="error">{passwordError}</p>
+                <p className="error">{passwordErrorText}</p>
                 <div className="checkboxContainer">
                   <input
                     type="checkbox"
@@ -95,7 +151,7 @@ class TeacherLoginPage extends Component {
             </div>
           </form>
           <Link to="/">
-            <button type="button" className="backButton">
+            <button type="button" className="backButton34">
               {' '}
               Home{' '}
             </button>

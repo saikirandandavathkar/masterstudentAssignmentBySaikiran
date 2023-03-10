@@ -1,0 +1,128 @@
+.execute-container {
+  background-color: #f9fbfe;
+  padding: 20px;
+  height: 100vh;
+}
+
+.responsive-container2 {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.executor-heading {
+  text-align: center;
+  font-family: 'Roboto';
+  font-size: 46px;
+  font-weight: 500;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.question-container {
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+  background-color: #ffffff;
+  border-radius: 15px;
+  padding: 30px;
+  box-shadow: 0px 0px 0px 3px #eccece;
+}
+
+.question-container-heading {
+  font-family: 'Roboto';
+  font-size: 25px;
+  font-weight: 600;
+  text-align: left;
+}
+
+.span-heading {
+  font-weight: 500;
+  margin-left: 3px;
+}
+
+.question-input {
+  background-color: white;
+  width: 100%;
+  border-style: solid;
+  border-width: 2px;
+  border-color: #e4e7eb;
+  border-radius: 10px;
+  margin-top: 0px;
+  padding: 15px;
+  outline: none;
+}
+
+.calculateButton {
+  color: white;
+  background-color: #4c63b6;
+  font-family: 'Roboto';
+  font-size: 18px;
+  border-width: 0px;
+  border-radius: 4px;
+  margin-top: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-right: 20px;
+  padding-left: 20px;
+  align-self: flex-end;
+}
+
+.calculateButton2 {
+  color: white;
+  background-color: #4c63b6;
+  font-family: 'Roboto';
+  font-size: 18px;
+  border-width: 0px;
+  border-radius: 4px;
+  margin-top: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-right: 20px;
+  padding-left: 20px;
+}
+
+.answer-para {
+  background-color: white;
+  width: 100%;
+  border-style: solid;
+  border-width: 2px;
+  border-color: #e4e7eb;
+  border-radius: 10px;
+  margin-top: 0px;
+  padding: 15px;
+  font-weight: 600;
+}
+
+.asked-container {
+  width: 60%;
+  display: flex;
+}
+
+.error2 {
+  font-family: 'Roboto';
+  font-size: 12px;
+  padding: 0px;
+  color: red;
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
+
+.logoutButton567 {
+  color: white;
+  background-color: #4c63b6;
+  font-family: 'Roboto';
+  font-size: 18px;
+  border-width: 0px;
+  border-radius: 4px;
+  margin-top: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-right: 20px;
+  padding-left: 20px;
+  align-self: flex-end;
+}

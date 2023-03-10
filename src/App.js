@@ -4,6 +4,8 @@ import TeacherLoginPage from './components/TeacherLoginPage'
 import TeacherRegistration from './components/TeacherRegistration'
 import StudentLogin from './components/StudentLogin'
 import StudentRegistration from './components/StudentRegistration'
+import TaskExecutor from './components/TaskExecutor'
+import StudentActivity from './components/StudentActivity'
 
 import Logos from './components/Logos'
 
@@ -25,6 +27,8 @@ const App = () => (
         path="/studentRegistration"
         component={StudentRegistration}
       />
+      <Route exact path="/taskExecutor" component={TaskExecutor} />
+      <Route exact path="/studentActivity" component={StudentActivity} />
     </Switch>
   </BrowserRouter>
 )

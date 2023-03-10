@@ -1,0 +1,71 @@
+.container3 {
+  background-image: linear-gradient(to right, #3492eb, #8611ad);
+  min-height: 100vh;
+  padding: 20px;
+}
+
+.responsive-container3 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.activity-heading {
+  font-family: 'Roboto';
+  font-size: 26px;
+  color: white;
+  padding: 5px;
+  text-align: left;
+}
+
+.orderListContainer {
+  background-color: #ffffff;
+  width: 50%;
+  padding-top: 20px;
+  padding-left: 50px;
+  padding-right: 50px;
+  border-radius: 15px;
+  padding-bottom: 20px;
+  box-shadow: 0px 0px 1px 4px #ffffff;
+  display: flex;
+  flex-direction: column;
+  margin-top: 30px;
+}
+
+.emptyList {
+  font-family: 'Roboto';
+  font-size: 50px;
+  color: black;
+  padding: 5px;
+  margin: 100px;
+}
+
+.logoutButton {
+  color: #3492eb;
+  background-color: #ffffff;
+  font-family: 'Roboto';
+  font-size: 18px;
+  border-width: 0px;
+  border-radius: 4px;
+  margin-top: 20px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-right: 20px;
+  padding-left: 20px;
+  align-self: flex-end;
+  position: sticky;
+  top: 20px;
+}
+
+.questionHead {
+  font-family: 'Roboto';
+  font-size: 16px;
+  color: #3492eb;
+  padding: 4px;
+  font-weight: 700;
+  border: 2px solid #3492eb;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+}
