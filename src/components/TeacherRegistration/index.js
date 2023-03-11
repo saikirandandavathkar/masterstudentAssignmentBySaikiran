@@ -54,7 +54,6 @@ class TeacherRegistration extends Component {
         confirmPassword: '',
       })
     } else {
-      console.log('hai')
       this.setState({
         isItEmail: false,
         name: '',
@@ -97,6 +96,7 @@ class TeacherRegistration extends Component {
             isItPassword: true,
             isEmailValid: true,
             isItSuccess: false,
+            isItMatched: true,
           },
           this.addDataInList,
         )

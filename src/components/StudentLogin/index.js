@@ -48,8 +48,8 @@ class StudentLogin extends Component {
       eachList => eachList.password === password,
     )
 
-    console.log(emailMatched)
-    console.log(passwordMatched)
+    // console.log(emailMatched)
+    // console.log(passwordMatched)
 
     if (emailMatched === false && passwordMatched === false) {
       this.setState({
@@ -82,7 +82,7 @@ class StudentLogin extends Component {
     }
   }
 
-  onClickShow = event => {
+  onClickShow = () => {
     this.setState(prevState => ({isItShow: !prevState.isItShow}))
   }
 
@@ -106,7 +106,7 @@ class StudentLogin extends Component {
                 type="text"
                 className="userInput"
                 id="username"
-                placeholder="Enter Username"
+                placeholder="Enter Email"
                 onChange={this.onChangeUsername}
                 value={email}
               />
@@ -146,7 +146,7 @@ class StudentLogin extends Component {
               Login
             </button>
             <div className="linkContainer">
-              <p> Doesn't have an account yet? </p>
+              <p> Does not have an account yet? </p>
               <Link to="/studentRegistration">
                 <p className="signUp"> Sign up </p>
               </Link>

@@ -17,7 +17,7 @@ class TeacherLoginPage extends Component {
     const stringifiedList = localStorage.getItem('teacherSignUpList')
 
     const parsedList = JSON.parse(stringifiedList)
-
+    console.log(parsedList)
     if (parsedList === null) {
       return []
     }
@@ -81,7 +81,7 @@ class TeacherLoginPage extends Component {
     }
   }
 
-  onClickShow = event => {
+  onClickShow = () => {
     this.setState(prevState => ({isItShow: !prevState.isItShow}))
   }
 
@@ -104,7 +104,7 @@ class TeacherLoginPage extends Component {
                 type="text"
                 className="userInput"
                 id="username"
-                placeholder="Enter Username"
+                placeholder="Enter Email"
                 onChange={this.onChangeUsername}
                 value={email}
               />
@@ -144,7 +144,7 @@ class TeacherLoginPage extends Component {
               Login
             </button>
             <div className="linkContainer">
-              <p> Doesn't have an account yet? </p>
+              <p> Does not have an account yet? </p>
               <Link to="teacherRegistration">
                 <p className="signUp"> Sign up </p>
               </Link>

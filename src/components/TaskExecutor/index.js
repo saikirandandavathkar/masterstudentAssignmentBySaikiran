@@ -59,7 +59,7 @@ class TaskExecutor extends Component {
   addOperationInLocalStorage = () => {
     const {question, answer} = this.state
     const parsedList = this.getListFromLocalStorage()
-    console.log(parsedList)
+
     const newObj = {id: uuidV4(), question, answer}
 
     const updatedList = [...parsedList, newObj]
@@ -78,8 +78,7 @@ class TaskExecutor extends Component {
       eachList => eachList.number === operand2,
     )
     const digit2 = digit2List[0].digit
-    console.log(digit1)
-    console.log(digit2)
+
     let isAnswer
     switch (operator) {
       case 'plus':
@@ -108,17 +107,17 @@ class TaskExecutor extends Component {
         const operandSecond = withoutLeftParenthesis[2].toLowerCase()
         const userOperator = withoutLeftParenthesis[1].toLowerCase()
 
-        console.log(userOperator)
-        console.log(operandFirst)
-        console.log(operandSecond)
+        // console.log(userOperator)
+        // console.log(operandFirst)
+        // console.log(operandSecond)
 
         const operatorValid = this.checkOperator(userOperator)
         const operandFirstValid = this.checkOperands(operandFirst)
         const operandSecondValid = this.checkOperands(operandSecond)
 
-        console.log(operatorValid)
-        console.log(operandFirstValid)
-        console.log(operandSecondValid)
+        // console.log(operatorValid)
+        // console.log(operandFirstValid)
+        // console.log(operandSecondValid)
 
         if (
           operatorValid === true &&
@@ -167,7 +166,6 @@ class TaskExecutor extends Component {
     const {question, answer, validQuestion} = this.state
     const errorText = validQuestion ? '' : '*enter valid Question'
 
-    const askedQuestion = answer === '' ? '' : {q1: question, a1: answer}
     return (
       <div className="execute-container">
         <div className="responsive-container2">

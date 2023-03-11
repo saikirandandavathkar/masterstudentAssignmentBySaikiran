@@ -21,10 +21,11 @@
 
 .orderListContainer {
   background-color: #ffffff;
-  width: 50%;
+  width: 220px;
+  max-width: 500px;
   padding-top: 20px;
-  padding-left: 50px;
-  padding-right: 50px;
+  padding-left: 20px;
+  padding-right: 20px;
   border-radius: 15px;
   padding-bottom: 20px;
   box-shadow: 0px 0px 1px 4px #ffffff;
@@ -33,15 +34,35 @@
   margin-top: 30px;
 }
 
+@media screen and (min-width: 576px) {
+  .orderListContainer {
+    width: 350px;
+    padding-left: 50px;
+    padding-right: 50px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .orderListContainer {
+    width: 60%;
+  }
+}
+
 .emptyList {
   font-family: 'Roboto';
-  font-size: 50px;
+  font-size: 30px;
   color: black;
   padding: 5px;
   margin: 100px;
 }
 
-.logoutButton {
+@media screen and (min-width) {
+  .emptyList {
+    font-size: 45px;
+  }
+}
+
+.logoutButton2 {
   color: #3492eb;
   background-color: #ffffff;
   font-family: 'Roboto';
@@ -49,8 +70,8 @@
   border-width: 0px;
   border-radius: 4px;
   margin-top: 20px;
-  padding-top: 5px;
-  padding-bottom: 5px;
+  padding-top: 3px;
+  padding-bottom: 3px;
   padding-right: 20px;
   padding-left: 20px;
   align-self: flex-end;

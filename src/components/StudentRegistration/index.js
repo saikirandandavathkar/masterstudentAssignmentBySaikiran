@@ -96,6 +96,7 @@ class StudentRegistration extends Component {
             isItPassword: true,
             isEmailValid: true,
             isItSuccess: false,
+            isItMatched: true,
           },
           this.addDataInList,
         )
@@ -275,7 +276,7 @@ class StudentRegistration extends Component {
       isItSuccess,
     } = this.state
 
-    console.log(userDetailsList)
+    // console.log(userDetailsList)
 
     const successText = isItSuccess
       ? 'Your account has been successfully created'

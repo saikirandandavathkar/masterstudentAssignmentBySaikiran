@@ -26,12 +26,16 @@ const StudentActivity = props => {
   return (
     <div className="container3">
       <div className="responsive-container3">
-        <button className="logoutButton" type="button" onClick={onLogoutButton}>
+        <button
+          className="logoutButton2"
+          type="button"
+          onClick={onLogoutButton}
+        >
           Log out
         </button>
         <h1 className="activity-heading"> List of activities </h1>
         {getList.length === 0 ? (
-          <h1 className="emptyList"> Empty List </h1>
+          <h1 className="emptyList"> Empty Activity List </h1>
         ) : (
           <ol className="orderListContainer">
             <div className="activityList">
