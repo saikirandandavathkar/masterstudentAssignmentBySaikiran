@@ -100,7 +100,6 @@ class TaskExecutor extends Component {
 
   isItValidQuestion = question => {
     if (question.endsWith('()))')) {
-      const withoutRightParenthesis = question.split(')')
       const withoutLeftParenthesis = question.split('(')
       if (withoutLeftParenthesis.length > 1) {
         const operandFirst = withoutLeftParenthesis[0].toLowerCase()
