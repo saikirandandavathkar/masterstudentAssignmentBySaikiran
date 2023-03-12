@@ -1,0 +1,71 @@
+.list {
+  list-style-type: decimal;
+  font-weight: 600;
+  color: #3492eb;
+  font-size: 12px;
+}
+
+.activityList {
+  display: flex;
+  justify-content: space-between;
+}
+
+.question1 {
+  font-family: 'Roboto';
+  font-size: 6px;
+  color: black;
+  padding: 5px;
+  font-weight: 700;
+  width: 150px;
+}
+
+@media screen and (min-width: 768px) {
+  .question1 {
+    font-size: 14px;
+  }
+}
+
+.question2 {
+  font-family: 'Roboto';
+  font-size: 6px;
+  color: #41c5a4;
+  padding: 5px;
+  font-weight: 700;
+  width: 70px;
+}
+
+.question3 {
+  font-family: 'Roboto';
+  font-size: 6px;
+  color: #2ce64b;
+  padding: 5px;
+  font-weight: 700;
+  width: 70px;
+}
+
+@media screen and (min-width: 768px) {
+  .question2 {
+    font-size: 14px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .question3 {
+    font-size: 14px;
+  }
+}
+
+.deleteIcon {
+  font-size: 8px;
+}
+
+@media screen and (min-width: 576px) {
+  .deleteIcon {
+    font-size: 14px;
+  }
+}
+
+.removeButton {
+  border: none;
+  background-color: transparent;
+}

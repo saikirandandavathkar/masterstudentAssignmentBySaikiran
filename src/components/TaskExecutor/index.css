@@ -1,16 +1,12 @@
 .execute-container {
-  background-color: #f9fbfe;
+  background-color: white;
   padding: 20px;
-  height: 100vh;
 }
 
 .responsive-container2 {
-  height: 100%;
-  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
 }
 
 .executor-heading {
@@ -38,10 +34,30 @@
   border-radius: 15px;
   padding: 30px;
   box-shadow: 0px 0px 0px 3px #eccece;
+  margin-bottom: 20px;
 }
 
 @media screen and (min-width: 768px) {
   .question-container {
+    width: 60%;
+  }
+}
+
+.question-container2 {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 400px;
+  background-color: #ffffff;
+  border-radius: 15px;
+  padding: 30px;
+  box-shadow: 0px 0px 0px 3px #eccece;
+  height: 300px;
+  overflow-y: auto;
+}
+
+@media screen and (min-width: 768px) {
+  .question-container2 {
     width: 60%;
   }
 }
@@ -70,7 +86,7 @@
   outline: none;
 }
 
-.calculateButton {
+.calculateButton34 {
   color: white;
   background-color: #4c63b6;
   font-family: 'Roboto';
@@ -97,6 +113,7 @@
   padding-bottom: 5px;
   padding-right: 20px;
   padding-left: 20px;
+  align-self: flex-end;
 }
 
 .answer-para {
@@ -125,17 +142,101 @@
   margin-bottom: 5px;
 }
 
+.logOutContainer45 {
+  margin-bottom: 50px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
 .logoutButton567 {
+  color: white;
+  background-color: #4c63b6;
+  font-family: 'Roboto';
+  font-size: 18px;
+  border-radius: 4px;
+  margin-top: 20px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-right: 20px;
+  padding-left: 20px;
+  font-weight: 900;
+  align-self: flex-end;
+  border: none;
+}
+
+.questionsHeading {
+  font-family: 'Roboto';
+  font-size: 18px;
+  text-align: right;
+  margin: 0px;
+}
+
+.questionHead34 {
+  font-family: 'Roboto';
+  font-size: 12px;
+  color: #3492eb;
+  padding: 2px;
+  font-weight: 700;
+  border: none;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  margin: auto;
+}
+
+/* .questionHeadTwo {
+  margin-left: auto;
+} */
+
+.activityList {
+  display: flex;
+  justify-content: space-between;
+}
+
+.submitButton3 {
   color: white;
   background-color: #4c63b6;
   font-family: 'Roboto';
   font-size: 18px;
   border-width: 0px;
   border-radius: 4px;
-  margin-top: 10px;
+  margin-top: 20px;
   padding-top: 5px;
   padding-bottom: 5px;
   padding-right: 20px;
   padding-left: 20px;
-  align-self: flex-end;
+  align-self: center;
+}
+
+.hintContainer {
+  align-self: center;
+  background-color: transparent;
+  width: 50%;
+  padding-top: 0px;
+  padding-left: 15px;
+}
+
+.hintStyle {
+  font-family: 'Roboto';
+  color: transparent;
+  font-size: 8px;
+  margin: 0px;
+  text-align: left;
+  color: red;
+  background-color: transparent;
+}
+
+.hintStyle2 {
+  color: black;
+}
+
+.clearContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 32%;
+  align-self: center;
+  background-color: transparent;
 }

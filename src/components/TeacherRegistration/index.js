@@ -19,7 +19,7 @@ class TeacherRegistration extends Component {
   }
 
   getListFromLocalStorage = () => {
-    const stringifiedList = localStorage.getItem('teacherSignUpList')
+    const stringifiedList = localStorage.getItem('teacherSignUpList345')
 
     const parsedList = JSON.parse(stringifiedList)
 
@@ -44,7 +44,7 @@ class TeacherRegistration extends Component {
 
     if (sameSignUpDetails === false) {
       const updatedList = [...parsedList, newObj]
-      localStorage.setItem('teacherSignUpList', JSON.stringify(updatedList))
+      localStorage.setItem('teacherSignUpList345', JSON.stringify(updatedList))
       this.setState({
         isItSuccess: true,
         name: '',
@@ -337,12 +337,6 @@ class TeacherRegistration extends Component {
             <p className="succcess">{successText}</p>
           </form>
           <div>
-            <Link to="/teacherLogin">
-              <button type="button" className="backButton">
-                {' '}
-                Back{' '}
-              </button>
-            </Link>
             <Link to="/">
               <button type="button" className="backButton">
                 {' '}

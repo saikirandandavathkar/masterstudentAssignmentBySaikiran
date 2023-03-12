@@ -1,6 +1,10 @@
 import {Component} from 'react'
 
+import Loader from 'react-loader-spinner'
+
 import {v4 as uuidV4} from 'uuid'
+
+import DisplayQuestions from '../DisplayQuestions'
 
 import './index.css'
 
@@ -31,6 +35,21 @@ class TaskExecutor extends Component {
     operand2: '',
     operator: '',
     validQuestion: true,
+    questionsList: [],
+    isSubmit: false,
+  }
+
+  componentDidMount() {
+    this.listUpdated()
+  }
+
+  listUpdated = () => {
+    const {questionsList} = this.state
+    const parsedList = this.getListFromLocalStorage()
+    const value = questionsList.length === 0
+    if (value) {
+      this.setState({questionsList: parsedList, isSubmit: true})
+    }
   }
 
   checkOperator = userOperator => {
@@ -46,7 +65,7 @@ class TaskExecutor extends Component {
   }
 
   getListFromLocalStorage = () => {
-    const stringifiedList = localStorage.getItem('arithmeticOperations')
+    const stringifiedList = localStorage.getItem('arithmeticOperations345')
 
     const parsedList = JSON.parse(stringifiedList)
 
@@ -56,16 +75,51 @@ class TaskExecutor extends Component {
     return parsedList
   }
 
-  addOperationInLocalStorage = () => {
-    const {question, answer} = this.state
-    const parsedList = this.getListFromLocalStorage()
+  addOperationInQuestionList = () => {
+    const {question, answer, questionsList} = this.state
 
-    const newObj = {id: uuidV4(), question, answer}
+    if (answer !== '') {
+      const newObj = {
+        id: uuidV4(),
+        question,
+        answer,
+        studentAns: '',
+        valueAdded: false,
+        validDigit: true,
+      }
 
-    const updatedList = [...parsedList, newObj]
+      let modifiedList = ''
 
-    localStorage.setItem('arithmeticOperations', JSON.stringify(updatedList))
-    this.setState({question: '', answer: ''})
+      if (questionsList.length !== 0) {
+        modifiedList = questionsList.map(eachList => ({
+          ...eachList,
+          studentAns: '',
+          valueAdded: false,
+        }))
+      } else {
+        modifiedList = questionsList
+      }
+
+      const updatedList = [...modifiedList, newObj]
+
+      // console.log(updatedList)
+
+      console.log(updatedList)
+
+      const formDetails = {
+        answerFormSubmitted: false,
+        questionFormsubmitted: false,
+      }
+
+      localStorage.setItem('formsSubmissions', JSON.stringify(formDetails))
+
+      this.setState({
+        question: '',
+        answer: '',
+        questionsList: updatedList,
+        isSubmit: false,
+      })
+    }
   }
 
   calculateTheFunction = () => {
@@ -95,7 +149,7 @@ class TaskExecutor extends Component {
         break
     }
 
-    this.setState({answer: isAnswer})
+    this.setState({answer: isAnswer}, this.addOperationInQuestionList)
   }
 
   isItValidQuestion = question => {
@@ -158,11 +212,127 @@ class TaskExecutor extends Component {
 
   onLogoutButton = () => {
     const {history} = this.props
-    history.replace('/teacherLogin')
+    history.replace('/')
   }
 
+  submitQuestions = () => {
+    const {questionsList} = this.state
+    localStorage.setItem(
+      'arithmeticOperations345',
+      JSON.stringify(questionsList),
+    )
+
+    const formDetails = {
+      answerFormSubmitted: false,
+      questionFormsubmitted: true,
+    }
+
+    localStorage.setItem('formsSubmissions', JSON.stringify(formDetails))
+
+    this.setState({isSubmit: true})
+  }
+
+  onRemoveItem = id => {
+    const {questionsList} = this.state
+    const filteredList = questionsList.filter(eachList => eachList.id !== id)
+
+    if (filteredList.length === 0) {
+      localStorage.removeItem('arithmeticOperations345')
+    }
+
+    this.setState({questionsList: filteredList, isSubmit: false})
+  }
+
+  clearQuestions = () => {
+    localStorage.removeItem('arithmeticOperations345')
+    this.setState({questionsList: []})
+  }
+
+  renderQuestions = () => {
+    // const parsedList = this.getListFromLocalStorage()
+
+    // console.log(parsedList)
+
+    const {questionsList, isSubmit} = this.state
+
+    // const updatedList = questionsList.length === 0 ? parsedList : questionsList
+
+    const submitText = isSubmit ? 'Submitted' : 'Submit'
+
+    // const value = localStorage.getItem('studentAns54')
+    // const parsedValue = JSON.parse(value)
+    // const studentAnsValue = parsedValue === null ? false : parsedValue
+
+    const value = localStorage.getItem('formsSubmissions')
+    const parsedValue = JSON.parse(value)
+    const studentAnsValue =
+      parsedValue === null ? false : parsedValue.answerFormSubmitted
+
+    const studentAnswers = studentAnsValue ? 'Student Answers' : ''
+    const CorrectAnswers = studentAnsValue ? 'Correct Answers' : ''
+    const QuestionTxt =
+      parsedValue.answerFormSubmitted === true
+        ? 'Questions & Answers'
+        : 'Questions'
+    return (
+      <>
+        <h1 className="questionsHeading"> {QuestionTxt} </h1>
+        <ol className="question-container2">
+          <div className="activityList">
+            <p className="questionHead34 questionHeadOne"> Questions </p>
+            <p className="questionHead34 questionHeadTwo"> {studentAnswers} </p>
+            <p className="questionHead34"> {CorrectAnswers} </p>
+          </div>
+          {questionsList.map(eachQuestion => (
+            <DisplayQuestions
+              key="eachQuestion.id"
+              questionDetails={eachQuestion}
+              onRemoveItem={this.onRemoveItem}
+            />
+          ))}
+        </ol>
+        <div className="clearContainer">
+          <div className="hintContainer">
+            <p className="hintStyle">Hint:</p>
+            <p className="hintStyle hintStyle2">
+              1.NA: Not answered by student
+            </p>
+            <p className="hintStyle hintStyle2">2.Null: Null value</p>
+            <p className="hintStyle hintStyle2">
+              3.once you clear the questions and you are not able to get back
+            </p>
+            <p className="hintStyle hintStyle2">
+              4.Student Answers and Correct Answers will be shown after student
+              submitted answers
+            </p>
+          </div>
+          <button
+            className="submitButton3"
+            type="button"
+            onClick={this.clearQuestions}
+          >
+            Clear
+          </button>
+        </div>
+        <button
+          className="submitButton3"
+          type="button"
+          onClick={this.submitQuestions}
+        >
+          {submitText}
+        </button>
+      </>
+    )
+  }
+
+  renderLoadingView = () => (
+    <div className="products-loader-container">
+      <Loader type="ThreeDots" color="#0b69ff" height="50" width="50" />
+    </div>
+  )
+
   render() {
-    const {question, answer, validQuestion} = this.state
+    const {question, validQuestion, questionsList} = this.state
     const errorText = validQuestion ? '' : '*enter valid Question'
 
     return (
@@ -192,19 +362,11 @@ class TaskExecutor extends Component {
               placeholder="Eg: two(times(three()))"
             />
             <p className="error2"> {errorText} </p>
-            <button className="calculateButton" type="submit">
-              Get
+            <button className="calculateButton2" type="submit">
+              Add
             </button>
-            <h1 className="question-container-heading">Answer</h1>
-            <p className="answer-para"> {answer} </p>
           </form>
-          <button
-            className="calculateButton2"
-            type="submit"
-            onClick={this.addOperationInLocalStorage}
-          >
-            Add
-          </button>
+          {questionsList.length === 0 ? null : this.renderQuestions()}
         </div>
       </div>
     )

@@ -14,7 +14,7 @@ class TeacherLoginPage extends Component {
   }
 
   getListFromLocalStorage = () => {
-    const stringifiedList = localStorage.getItem('teacherSignUpList')
+    const stringifiedList = localStorage.getItem('teacherSignUpList345')
 
     const parsedList = JSON.parse(stringifiedList)
     console.log(parsedList)
@@ -144,7 +144,7 @@ class TeacherLoginPage extends Component {
               Login
             </button>
             <div className="linkContainer">
-              <p> Does not have an account yet? </p>
+              <p className="haveAnAccount"> Does not have an account yet? </p>
               <Link to="teacherRegistration">
                 <p className="signUp"> Sign up </p>
               </Link>

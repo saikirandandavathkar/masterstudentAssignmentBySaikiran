@@ -62,3 +62,11 @@
     flex-direction: row;
   }
 }
+
+.logo-para {
+  font-family: 'Roboto';
+  font-size: 15px;
+  color: white;
+  text-align: center;
+  padding: 5px;
+}

@@ -16,3 +16,53 @@
   padding: 5px;
   font-weight: 700;
 }
+
+.inputEl {
+  margin-top: 15px;
+  width: 34px;
+  height: 20px;
+  padding: 2px;
+  text-align: center;
+  outline: none;
+  color: black;
+  cursor: pointer;
+  margin-right: 5px;
+  border: 1px solid black;
+  border-radius: 5px;
+  background-color: #e7cd27;
+  font-weight: 600;
+}
+
+.addButton {
+  margin-top: 15px;
+  outline: none;
+  cursor: pointer;
+  border-radius: 3px;
+  height: 20px;
+  margin: 0px;
+  padding: 2px;
+}
+
+.color1 {
+  color: #3492eb;
+  background-color: white;
+  border: 1px solid #3492eb;
+}
+
+.color2 {
+  color: white;
+  background-color: #3492eb;
+  border: none;
+}
+
+.invalidChar {
+  color: red;
+  align-self: flex-end;
+  text-align: right;
+  margin: 0px;
+}
+
+.opacityStyle {
+  background-color: #d3d3d3;
+  opacity: 0.5;
+}
